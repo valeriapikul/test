@@ -6,6 +6,7 @@
   "dependencies": {
     "-": "^0.0.1",
     "g": "^2.0.1",
+    "jquery-form-styler": "^2.0.2",
     "normalize.css": "^8.0.1",
     "slick-carousel": "^1.8.1"
   },

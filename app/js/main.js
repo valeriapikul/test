@@ -1,29 +1,32 @@
-document.querySelector('.todo-form__button').onclick = addElement;
 
-function addElement(event) {
-    event.preventDefault();
-    let giveValue = document.querySelector('.todo-form__input');
-    let div = document.querySelector('.todo__list');
+    document.querySelector('.todo-form__button').onclick = addElement;
 
-    // проверить не пустой ли ввод
+    function addElement(event) {
+        event.preventDefault();
+        let giveValue = document.querySelector('.todo-form__input');
+        let div = document.querySelector('.todo__list');
 
-    if (giveValue.value !== '') {
-        let newDiv = document.createElement('div');
-        let newCheckbox = document.createElement('input');
+        // проверить не пустой ли ввод
 
-        newDiv.classList.add('todo__list-item');
-        div.appendChild(newDiv);
-        newDiv.textContent = giveValue.value;
+        if (giveValue.value !== '') {
+            let newDiv = document.createElement('div');
+            let newCheckbox = document.createElement('input');
 
-        newDiv.prepend(newCheckbox);
-        newCheckbox.setAttribute('type', 'checkbox');
-        newCheckbox.classList.add('newCheckbox');
+            newDiv.classList.add('todo__list-item');
+            div.appendChild(newDiv);
+            newDiv.textContent = giveValue.value;
 
-        giveValue.value = ''; // добавить очистку инпута
+            newDiv.prepend(newCheckbox);
+            newCheckbox.setAttribute('type', 'checkbox');
+            newCheckbox.classList.add('newCheckbox');
+            newCheckbox.classList.add('styler');
 
-        newCheckbox.onclick = () => {
-            newDiv.style.textDecoration = 'line-through';
-            newDiv.style.color = '#4F5565';
+            giveValue.value = ''; // добавить очистку инпута
+
+            newCheckbox.onclick = () => {
+                newDiv.classList.toggle('active');
+            }
         }
     }
-}
+
+    

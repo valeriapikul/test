@@ -13,38 +13,14 @@ body {
     line-height: 20px;
     font-weight: 500;
     color: #fff;
-    animation-timing-function: ease-in-out;
-    animation-duration: 3s;
-    animation-name: slidein;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-    background-size: cover;
-    background-repeat: no-repeat;
+    background: radial-gradient(50% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
+    // animation-timing-function: ease-in-out;
+    // animation-duration: 3s;
+    // animation-name: slidein;
+    // animation-iteration-count: infinite;
+    // animation-direction: alternate;
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
-    /* filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); */
-}
-
-@keyframes slidein {
-    0% {
-        background: radial-gradient(50% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
-    }
-
-    25% {
-        background: radial-gradient(35.13% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
-    }
-
-    50% {
-        background: radial-gradient(75% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
-    }
-
-    75% {
-        background: radial-gradient(35.13% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
-    }
-
-    100% {
-        background: radial-gradient(50% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
-    }
 }
 
 .container {
@@ -62,6 +38,18 @@ body {
     height: 540px;
     max-height: 540px;
     margin: 120px auto;
+    position: relative;
+
+    &::after {
+        content: '';
+        position: absolute;
+        background-image: url(../images/Group\ 1.svg);
+        width: 396px;
+        height: 68px;
+        top: -47px;
+        left: 0;
+        z-index: -1;
+    }
 }
 
 .todo__list {
@@ -152,4 +140,9 @@ body {
     color: #414B62;
     text-align: center;
     margin-top: 60px;
+}
+
+.active {
+    text-decoration: line-through;
+    color: #4F5565;
 }
