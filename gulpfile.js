@@ -5,7 +5,6 @@ let browserSync = require('browser-sync');
 let autoprefixer = require('gulp-autoprefixer');
 let concat = require('gulp-concat');
 let uglify = require('gulp-uglify');
-let formstyler = require('form-styler');
 let cssmin = require('gulp-cssmin');
 
 gulp.task('sass', function () {
@@ -22,8 +21,6 @@ gulp.task('style', function () {
         'node_modules/normalize.css/normalize.css',
         'node_modules/slick-carousel/slick/slick.css',
         'node_modules/magnific-popup/dist/magnific-popup.css',
-        'node_modules/jquery-form-styler/dist/jquery.formstyler.css',
-        'node_modules/jquery-form-styler/dist/jquery.formstyler.theme.css'
     ])
         .pipe(concat('libs.min.css'))
         .pipe(cssmin())
@@ -34,7 +31,6 @@ gulp.task('script', function () {
     return gulp.src([
         'node_modules/slick-carousel/slick/slick.js',
         'node_modules/magnific-popup/dist/jquery.magnific-popup.js',
-        'node_modules/jquery-form-styler/dist/jquery.formstyler.js'
     ])
         .pipe(concat('libs.min.js'))
         .pipe(uglify())

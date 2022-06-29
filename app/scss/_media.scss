@@ -1,0 +1,84 @@
+@media (max-width: 425px) {
+    .todo-form__input {
+        max-width: 240px;
+    }
+}
+
+@media (max-width: 394px) {
+    .todo__inner::after {
+        background-size: 335px 112px;
+        width: 340px;
+    }
+
+    .todo-form__input {
+        max-width: 220px;
+    }
+
+    .todo__inner {
+        height: 420px;
+    }
+}
+
+@media (max-width: 361px) {
+    .todo__inner {
+        padding: 20px;
+
+        &::after {
+            background-size: 310px 112px;
+            width: 316px;
+        }
+    }
+}
+
+@media (max-width: 345px) {
+    .todo__inner::after {
+        background-size: 290px 112px;
+        width: 295px;
+    }
+
+    .todo__inner {
+        height: 375px;
+    }
+
+    .todo-form__input {
+        max-width: 200px;
+    }
+
+    .todo-form__input {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 325px) {
+    .todo__inner::after {
+        background-size: 270px 112px;
+        width: 275px;
+    }
+
+    .todo-form__input {
+        max-width: 180px;
+    }
+}
+@media (max-width: 303px) {
+    .todo__inner::after {
+        background-size: 255px 112px;
+        width: 260px;
+    }
+
+    .todo-form__input {
+        max-width: 160px;
+    }
+    .todo-form__input {
+        font-size: 21px;
+    }
+}
+@media (max-width: 281px) {
+    .todo__inner::after {
+        background-size: 240px 112px;
+        width: 248px;
+    }
+
+    .todo__inner {
+        padding: 15px;
+    }
+}

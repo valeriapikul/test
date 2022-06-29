@@ -1,12 +1,5 @@
-html {
-    box-sizing: border-box;
-}
+@import '_global';
 
-*,
-*::before,
-*::after {
-    box-sizing: inherit;
-}
 
 body {
     font-size: 16px;
@@ -15,19 +8,34 @@ body {
     color: #fff;
     background: radial-gradient(50% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
     // animation-timing-function: ease-in-out;
-    // animation-duration: 3s;
     // animation-name: slidein;
-    // animation-iteration-count: infinite;
     // animation-direction: alternate;
+    // animation: anim 5.0s infinite;
     font-family: 'Montserrat', sans-serif;
     height: 100vh;
 }
 
-.container {
-    max-width: 1220px;
-    margin: 0 auto;
-    padding: 0 10px;
-}
+//  @keyframes animation {
+//     0% {
+//         background: radial-gradient(50% 50% at 50% 50%, #252E42 0%, #161C2E 100%);
+//     }
+
+//     20% {
+//         background: radial-gradient(50% 50% at 70% 70%, #252E42 0%, #161C2E 100%);
+//     }
+
+//     40% {
+//         background: radial-gradient(50% 50% at 40% 30%, #252E42 0%, #161C2E 100%);
+//     }
+
+//     60% {
+//         background: radial-gradient(50% 50% at 42% 55%, #252E42 0%, #161C2E 100%);
+//     }
+
+//     80% {
+//         background: radial-gradient(50% 50% at 42% 55%, #252E42 0%, #161C2E 100%);
+//     }
+// } 
 
 .todo__inner {
     background: #252E42;
@@ -37,18 +45,20 @@ body {
     max-width: 420px;
     height: 540px;
     max-height: 540px;
-    margin: 120px auto;
+    margin: 120px auto 30px;
     position: relative;
 
     &::after {
         content: '';
         position: absolute;
         background-image: url(../images/Group\ 1.svg);
-        width: 396px;
-        height: 68px;
+        width: 398px;
+        height: 112px;
         top: -47px;
         left: 0;
         z-index: -1;
+        background-size: 369px 112px;
+        background-repeat: no-repeat;
     }
 }
 
@@ -58,9 +68,6 @@ body {
     max-width: 420px;
     overflow: auto;
 
-    /* -webkit-box-shadow: 0px -36px 12px -3px rgba(34, 60, 80, 0.38) inset;
-    -moz-box-shadow: 0px -36px 12px -3px rgba(34, 60, 80, 0.38) inset;
-    box-shadow: 0px -36px 12px -3px rgba(34, 60, 80, 0.38) inset; */
     &::-webkit-scrollbar {
         width: 4px;
     }
@@ -70,7 +77,7 @@ body {
     }
 
     &::-webkit-scrollbar-thumb {
-        background: #FF8469;
+        background: $orange;
         border-radius: 10px;
     }
 
@@ -116,7 +123,7 @@ body {
 
     &__button {
         text-transform: uppercase;
-        background: #FF8469;
+        background: $orange;
         border-radius: 7px;
         padding: 5px 10px;
         cursor: pointer;
@@ -130,19 +137,67 @@ body {
     }
 }
 
-.newCheckbox {
-    margin-right: 15px;
-    background: #4F5565;
-    border-radius: 6px;
+.todo__list-span {
+    max-width: 325px;
+    min-height: 40px;
+    padding: 0 25px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    word-break: break-all;
+    cursor: pointer;
+
+    &:hover {
+        transition: background-color 0.3s;
+        color: #D95133;
+    }
+
+    &::before {
+        content: '';
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        flex-grow: 0;
+        background: $dark;
+        border-radius: 6px;
+        margin-right: 0.5em;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+}
+
+.todo__list-input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+}
+
+.todo__list-input:not(:disabled):not(:checked)+.todo__list-span:hover::before {
+    background: rgba(255, 132, 105, 0.2);
+}
+
+.todo__list-input:not(:disabled):active+.todo__list-span::before {
+    background: rgba(255, 132, 105, 0.2);
+}
+
+.todo__list-input:checked+.todo__list-span::before {
+    background-image: url(../images/checkbox.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+.todo__list-input:disabled+.todo__list-span::before {
+    background-color: #e9ecef;
 }
 
 .copyright {
-    color: #414B62;
+    color: $dark;
     text-align: center;
-    margin-top: 60px;
 }
 
 .active {
     text-decoration: line-through;
-    color: #4F5565;
+    color: $dark;
 }
+
+@import '_media';
